@@ -39,7 +39,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: 0.5rem 4rem;
     position: relative;
     max-width: 1600px;
     margin: 0 auto;
@@ -1023,7 +1023,6 @@ a {
     background-color: #444;
     border-radius: 50%;
 }
-}
 
 .card-value {
     font-size: 1.25rem;
@@ -1032,4 +1031,143 @@ a {
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+/* Smooth scrolling for nav links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* === Antigravity-style Card Animation === */
+
+/* The Bronn card entrance animation */
+.bronn-visual .macbook-window {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease;
+}
+
+.bronn-visual.animate-in .macbook-window {
+    animation: cardFloatIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFloatIn {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Typing cursor blink for the card text */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: #8b5cf6;
+    margin-left: 2px;
+    animation: cursorBlink 0.8s infinite;
+    vertical-align: text-bottom;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Sequential reveal for card items */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* File chip styling */
+.file-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f0f0ff;
+    border: 1px solid #e0e0f0;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    color: #4f46e5;
+    font-family: monospace;
+}
+
+/* Progress list styling */
+.progress-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.progress-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 0.8rem;
+    color: #444;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progress-list li.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.progress-list li .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f0f0ff;
+    color: #4f46e5;
+    font-size: 0.65rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.progress-list li.active .step-num {
+    background: #4f46e5;
+    color: #fff;
+    animation: stepPulse 1.5s infinite;
+}
+
+@keyframes stepPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(79, 70, 229, 0);
+    }
+}
+
+/* Nav smooth scroll behavior for anchor links */
+.nav-links a {
+    transition: color 0.2s ease;
 }

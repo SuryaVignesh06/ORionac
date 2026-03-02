@@ -37,6 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (resultsView2) resultsView2.classList.add('hidden');
         initialState.classList.remove('hidden');
 
+        // ==== CARD ENTRANCE ====
+        // Float-in the card before anything else
+        visualSection.classList.add('animate-in');
+        await new Promise(r => setTimeout(r, 1000));
+
         // ==== SEQUENCE 1 ====
         // 1. Wait a moment, then trigger cinematic spotlight
         await new Promise(r => setTimeout(r, 600));
