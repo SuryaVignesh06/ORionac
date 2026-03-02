@@ -150,4 +150,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { threshold: 0.2 });
     bronnObserver.observe(visualSection);
+    // --- Phase 6: GSAP Text Reveal Logic ---
+    const initGsapReveal = () => {
+        const textWrapper = document.getElementById('gsap-text-wrapper');
+        const container = document.getElementById('gsap-reveal-section');
+        if (!textWrapper || !container)
+            return;
+        // 1. Split text into words
+        const textContent = textWrapper.textContent || '';
+        const words = textContent.trim().split(/\s+/);
+        textWrapper.innerHTML = ''; // Clear existing text
+        words.forEach(word => {
+            const span = document.createElement('span');
+            span.className = 'word';
+            span.textContent = word + ' ';
+            textWrapper.appendChild(span);
+        });
+        const wordElements = textWrapper.querySelectorAll('.word');
+        // Configuration matching user's react component
+        const baseOpacity = 0.1;
+        const blurStrength = 4;
+        // 2. Animate Words (Opacity)
+        gsap.fromTo(wordElements, { opacity: baseOpacity, willChange: 'opacity' }, {
+            ease: 'none',
+            opacity: 1,
+            stagger: 0.05,
+            scrollTrigger: {
+                trigger: container,
+                start: 'top bottom-=20%',
+                end: 'bottom bottom',
+                scrub: true
+            }
+        });
+        // 3. Animate Words (Blur)
+        gsap.fromTo(wordElements, { filter: `blur(${blurStrength}px)` }, {
+            ease: 'none',
+            filter: 'blur(0px)',
+            stagger: 0.05,
+            scrollTrigger: {
+                trigger: container,
+                start: 'top bottom-=20%',
+                end: 'bottom bottom',
+                scrub: true
+            }
+        });
+    };
+    initGsapReveal();
 });

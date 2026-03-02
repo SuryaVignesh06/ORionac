@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -57,9 +59,6 @@
                     </header>
 
                     <div class="ai-mockup-body">
-                        <h2>Good morning, ready to research?</h2>
-                        <p>Ask Bronn about competitors, market trends, or industry data.</p>
-
                         <div class="ai-skeleton">
                             <div class="skeleton-circle"></div>
                             <div class="skeleton-lines">
@@ -129,6 +128,16 @@
             </div>
         </div>
     </main>
+
+    <section id="gsap-reveal-section" class="scroll-reveal-container"
+        style="padding: 6rem 2rem; background: #faf9f8; display: flex; justify-content: center; align-items: center; min-height: 60vh; overflow: hidden;">
+        <h2 id="gsap-text-wrapper" class="gsap-text-wrapper"
+            style="font-size: clamp(2rem, 5vw, 4rem); max-width: 1000px; text-align: center; color: #111; line-height: 1.2; font-weight: 500;">
+            <!-- Words will be injected here via TS -->
+            The future of research is not just about gathering data. It's about adaptive intelligence that understands
+            your context and accelerates your workflow seamlessly.
+        </h2>
+    </section>
 
     <section class="bronn-section" id="bronn-section">
         <div class="bronn-container">
