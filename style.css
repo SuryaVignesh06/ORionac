@@ -1267,13 +1267,61 @@ html {
         text-align: center;
     }
 
+    .hero-visual {
+        padding: 0 1rem;
+        margin-top: 3rem;
+    }
+
+    .ai-mockup-wrapper {
+        padding: 2px 2px 0 2px;
+    }
+
+    .ai-mockup {
+        padding: 1.5rem 1rem;
+        min-height: 400px;
+    }
+
+    .ai-mockup-header-right {
+        right: 1rem;
+        top: 1.5rem;
+    }
+
     .ai-mockup-body h2 {
         font-size: 1.8rem;
     }
 
+    .ai-mockup-footer {
+        gap: 1rem;
+    }
+
     .ai-chips {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .ai-chips button {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+        justify-content: flex-start;
+    }
+
+    .ai-input-container {
+        padding: 0.25rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .ai-input-container input {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+        min-width: 0;
+    }
+
+    .attach-icon,
+    .mic-icon {
+        padding: 0 0.25rem;
     }
 
     .bronn-container {
@@ -1325,5 +1373,6 @@ html {
 
     #cinematic-input {
         width: 100%;
+        box-sizing: border-box;
     }
 }
